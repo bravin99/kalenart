@@ -1,4 +1,5 @@
 from django.db import models
+from main_app.image_compresor import compress_image
 
 
 class MainAppBaseModel(models.Model):
@@ -32,6 +33,10 @@ class Feed(MainAppBaseModel):
 
     def __str__(self):
         return f"{self.image_slug}"
+
+    def save(self, *args, **kwargs):
+        self.picture = compress_image(self.picture)
+        return super(Feed, self).save()
 
     class Meta:
         verbose_name = "Feeds"
