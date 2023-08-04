@@ -18,3 +18,20 @@ class SiteData(MainAppBaseModel):
 
     def __str__(self):
         return f"{self.header_title}"
+
+
+def feed_upload_path(instance, filename):
+    return f"feed_images/{instance.image_slug}/{filename}"
+
+
+class Feed(MainAppBaseModel):
+    image_slug = models.SlugField()
+    picture = models.ImageField(upload_to=feed_upload_path)
+    description = models.TextField()
+
+    def __str__(self):
+        return f"{self.image_slug}"
+
+    class Meta:
+        verbose_name = "Feeds"
+        verbose_name_plural = verbose_name
