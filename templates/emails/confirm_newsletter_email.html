@@ -1,0 +1,6 @@
+{% autoescape off %}
+    Hi {{ name }},
+    Please paste the link on a browser to confirm your newsletter registration,
+
+    http://{{ domain }}{% url 'confirm_newsletter_email' confirmation_id=confirm_code %}
+{% endautoescape %}
