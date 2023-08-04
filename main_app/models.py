@@ -28,6 +28,7 @@ class Feed(MainAppBaseModel):
     image_slug = models.SlugField()
     picture = models.ImageField(upload_to=feed_upload_path)
     description = models.TextField()
+    display = models.BooleanField(default=True)
 
     def __str__(self):
         return f"{self.image_slug}"
