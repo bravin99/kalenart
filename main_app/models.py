@@ -10,6 +10,7 @@ class MainAppBaseModel(models.Model):
 class SiteData(MainAppBaseModel):
     header_title = models.CharField(max_length=100, default="Header title here", verbose_name="Headline")
     header_message = models.TextField(default="put intro here", verbose_name="Introduction")
+    header_image = models.ImageField(upload_to="here_images/", null=True)
     instagram_link = models.URLField()
     facebook_link = models.URLField(default="https://facebook.com/the.kalen")
     email = models.EmailField()
@@ -20,6 +21,10 @@ class SiteData(MainAppBaseModel):
 
     def __str__(self):
         return f"{self.header_title}"
+
+    def save(self, *args, **kwargs):
+        self.header_image = compress_image(self.header_image, 80)
+        return super(SiteData, self).save(*args, **kwargs)
 
 
 def feed_upload_path(instance, filename):
@@ -36,7 +41,7 @@ class Feed(MainAppBaseModel):
         return f"{self.image_slug}"
 
     def save(self, *args, **kwargs):
-        self.picture = compress_image(self.picture)
+        self.picture = compress_image(self.picture, 60)
         return super(Feed, self).save()
 
     class Meta:
