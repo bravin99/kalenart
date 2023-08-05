@@ -1,5 +1,53 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
+<section>
+    <nav class="flex items-center justify-around flex-wrap bg-white p-6 shadow-md">
+        <div class="flex items-center flex-shrink-0 text-gray-800 mr-6 cursor-pointer">
+            <a href="{% url 'feed' %}">
+                <img src="{% static 'favicons/favicon-32x32.png' %}" alt="">
+            </a>
+        </div>
+        <div class="text-sm w-64 md:mr-32">
+            <label for="search_input" style="display: none;"></label>
+            <input id="search_input" class="bg-gray-100 focus:outline-none focus:shadow-outline border border-gray-400 rounded py-1 px-4 block w-full appearance-none leading-normal" type="text" placeholder="Search">
+        </div>
+    </nav>
 
+    <div class="container mx-auto my-5 sm:px-10">
+
+        <div class="flex justify-center">
+            <div class="mb-4 border-b border-gray-200 dark:border-gray-700">
+                <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="feedTabs" data-tabs-toggle="#feedTabsContent" role="tablist">
+                    <li class="mr-2" role="presentation">
+                        <button class="inline-block p-4 border-b-2 rounded-t-lg" id="list-tab-toggler" data-tabs-target="#listTab" type="button" role="tab" aria-controls="listTab" aria-selected="false">
+                            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 19 20">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2 9.376v.786l8 3.925 8-3.925v-.786M1.994 14.191v.786l8 3.925 8-3.925v-.786M10 1.422 2 5.347l8 3.925 8-3.925-8-3.925Z"/>
+                            </svg>
+                        </button>
+                    </li>
+                    <li class="mr-2" role="presentation">
+                        <button class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" id="grid-tab-toggler" data-tabs-target="#gridTab" type="button" role="tab" aria-controls="gridTab" aria-selected="false">
+                            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6.143 1H1.857A.857.857 0 0 0 1 1.857v4.286c0 .473.384.857.857.857h4.286A.857.857 0 0 0 7 6.143V1.857A.857.857 0 0 0 6.143 1Zm10 0h-4.286a.857.857 0 0 0-.857.857v4.286c0 .473.384.857.857.857h4.286A.857.857 0 0 0 17 6.143V1.857A.857.857 0 0 0 16.143 1Zm-10 10H1.857a.857.857 0 0 0-.857.857v4.286c0 .473.384.857.857.857h4.286A.857.857 0 0 0 7 16.143v-4.286A.857.857 0 0 0 6.143 11Zm10 0h-4.286a.857.857 0 0 0-.857.857v4.286c0 .473.384.857.857.857h4.286a.857.857 0 0 0 .857-.857v-4.286a.857.857 0 0 0-.857-.857Z"/>
+                            </svg>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="feedTabsContent">
+            <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="listTab" role="tabpanel" aria-labelledby="listTab-content">
+                <div class="grid grid-cols-1 place-items-center gap-2">
+                    {% include "main_app/feed_post.html" %}
+                </div>
+            </div>
+            <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="gridTab" role="tabpanel" aria-labelledby="gridTab-content">
+                <p class="text-sm text-gray-500 dark:text-gray-400">Grid This is some placeholder content the <strong class="font-medium text-gray-800 dark:text-white">Dashboard tab's associated content</strong>. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
 {% endblock %}

@@ -33,11 +33,18 @@
         <link rel="stylesheet" href="{% static 'css/output.css' %}">
         <link rel="stylesheet" href="{% static 'toastr/toastr.min.css' %}">
     {% endcompress %}
+    {% if page_title == "landing" %}
+        <style>
+            #nav_id {
+                transition-duration: 1s;
+            }
+        </style>
+    {% endif %}
 </head>  
 
 <body class="bg-green-50 dark:bg-gray-700">
     <!-- Nav -->
-    <nav class="bg-white border-gray-200 bg-gray-300 sticky top-0">
+    <nav id="nav_id" class="border-gray-200 {% if page_title == "landing" %}sticky top-0{% endif %}">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-center mx-auto p-2">
             <div class="flex items-center md:order-2">
                 {% comment %} theme toggler {% endcomment %}
@@ -72,6 +79,24 @@
         {#    messages#}
         {% include 'messages.html' %}
         {#    end messages#}
+
+        {% if page_title == "landing" %}
+        <script>
+        $(document).ready(function(){
+           let scroll_start = 0;
+           let start_change = $('#nav_id');
+           let offset = start_change.offset();
+           $(document).scroll(function() {
+              scroll_start = $(this).scrollTop();
+              if(scroll_start > offset.top) {
+                  $('.nav').css('background-color', 'rgba(34,34,34,0.9)');
+               } else {
+                  $('.nav').css('background-color', 'transparent');
+               }
+           });
+        });
+        </script>
+        {% endif %}
 
     {% endcompress %}
 </body>
