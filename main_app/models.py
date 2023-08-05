@@ -23,7 +23,7 @@ class SiteData(MainAppBaseModel):
         return f"{self.header_title}"
 
     def save(self, *args, **kwargs):
-        self.header_image = compress_image(self.header_image, 80)
+        self.header_image = compress_image(self.header_image, 95)
         return super(SiteData, self).save(*args, **kwargs)
 
 

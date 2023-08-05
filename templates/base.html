@@ -32,14 +32,16 @@
     {% compress css %}
         <link rel="stylesheet" href="{% static 'css/output.css' %}">
         <link rel="stylesheet" href="{% static 'toastr/toastr.min.css' %}">
-    {% endcompress %}
-    {% if page_title == "landing" %}
+        {% if page_title == "landing" %}
         <style>
             .navclass {
                 transition-duration: 1s;
             }
         </style>
-    {% endif %}
+        {% endif %}
+        {% block extra_css %}{% endblock extra_css %}
+    {% endcompress %}
+
 </head>  
 
 <body class="bg-green-50 dark:bg-gray-700">
