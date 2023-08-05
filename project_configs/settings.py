@@ -114,7 +114,7 @@ AUTH_PASSWORD_VALIDATORS = [
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
-        'LOCATION': '0390-arkkalen',
+        'LOCATION': '1998kalen-art-cache',
     }
 }
 
@@ -145,13 +145,6 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'compressor.finders.CompressorFinder'
     )
-
-CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
-        'LOCATION': 'unique-kalenart-cache',
-    }
-}
 
 STORAGES = {
     "staticfiles": {
