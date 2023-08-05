@@ -11,6 +11,7 @@ class SiteData(MainAppBaseModel):
     header_title = models.CharField(max_length=100, default="Header title here", verbose_name="Headline")
     header_message = models.TextField(default="put intro here", verbose_name="Introduction")
     instagram_link = models.URLField()
+    facebook_link = models.URLField()
     email = models.EmailField()
 
     class Meta:

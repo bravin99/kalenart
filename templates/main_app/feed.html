@@ -38,13 +38,15 @@
             </div>
         </div>
         <div id="feedTabsContent">
-            <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="listTab" role="tabpanel" aria-labelledby="listTab-content">
+            <div class="hidden p-4 rounded-lg" id="listTab" role="tabpanel" aria-labelledby="listTab-content">
                 <div class="grid grid-cols-1 place-items-center gap-2">
-                    {% include "main_app/feed_post.html" %}
+                    {% include "main_app/feed_post_list.html" %}
                 </div>
             </div>
-            <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="gridTab" role="tabpanel" aria-labelledby="gridTab-content">
-                <p class="text-sm text-gray-500 dark:text-gray-400">Grid This is some placeholder content the <strong class="font-medium text-gray-800 dark:text-white">Dashboard tab's associated content</strong>. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling.</p>
+            <div class="hidden p-4 rounded-lg" id="gridTab" role="tabpanel" aria-labelledby="gridTab-content">
+                <div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-2">
+                    {% include "main_app/feed_post_grid.html" %}
+                </div>
             </div>
         </div>
 
