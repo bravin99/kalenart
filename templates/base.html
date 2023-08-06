@@ -28,11 +28,11 @@
     <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicons/favicon-32x32.png' %}">
     <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicons/favicon-16x16.png' %}">
     <link rel="manifest" href="{% static 'site.webmanifest' %}">
+    <link rel="stylesheet" href="{% static 'lightbox2/css/lightbox.min.css' %}">
 
     {% compress css %}
         <link rel="stylesheet" href="{% static 'css/output.css' %}">
         <link rel="stylesheet" href="{% static 'toastr/toastr.min.css' %}">
-        <link rel="stylesheet" href="{% static 'featherlight/featherlight.min.css' %}">
         <style>
             .navclass {
                 transition-duration: 1s;
@@ -63,10 +63,14 @@
     </main>
 
     {% include 'footer.html' %}
-    
+
+    <script src="{% static 'js/jquery-3.4.1.js' %}"></script>
     <script src="{% static 'flowbite/flowbite.min.js' %}"></script>
+    <script src="{% static 'lightbox2/js/lightbox-plus-jquery.min.js' %}"></script>
     {% compress js %}
+        <script src="{% static 'toastr/toastr.min.js' %}"></script>
         <script src="{% static 'js/main.js' %}"></script>
+
         <script>
           // On page load or when changing themes, best to add inline in `head` to avoid FOUC
           if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -75,33 +79,11 @@
               document.documentElement.classList.remove('dark')
           }
         </script>
-
-        <script src="{% static 'js/jquery-3.4.1.js' %}"></script>
-        <script src="{% static 'toastr/toastr.min.js' %}"></script>
-        <script src="{% static 'featherlight/featherlight.min.js' %}"></script>
         {#    messages#}
         {% include 'messages.html' %}
         {#    end messages#}
 
-{#        {% if page_title == "landing" %}#}
-{#            <script type="text/javascript">#}
-{#            $(document).ready(function(){#}
-{#               let scroll_start = 0;#}
-{#               let start_change = $('.navclass');#}
-{#               let offset = start_change.offset();#}
-{#               $(document).scroll(function() {#}
-{#                  scroll_start = $(this).scrollTop();#}
-{#                  if(scroll_start > offset.top) {#}
-{#                      $('.navclass').css('background-color', 'rgba(34,34,34,0.9)');#}
-{#                   } else {#}
-{#                      $('.navclass').css('background-color', 'green');#}
-{#                   }#}
-{#               });#}
-{#            });#}
-{#            </script>#}
-{#        {% endif %}#}
-
-
+        {% block extra_js %}{% endblock %}
     {% endcompress %}
 </body>
 

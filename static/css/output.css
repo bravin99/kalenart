@@ -1086,10 +1086,6 @@ input[type="range"]::-ms-fill-lower {
   height: 0.875rem;
 }
 
-.h-4 {
-  height: 1rem;
-}
-
 .h-5 {
   height: 1.25rem;
 }
@@ -1112,10 +1108,6 @@ input[type="range"]::-ms-fill-lower {
 
 .w-3\.5 {
   width: 0.875rem;
-}
-
-.w-4 {
-  width: 1rem;
 }
 
 .w-5 {
@@ -1223,10 +1215,6 @@ input[type="range"]::-ms-fill-lower {
   justify-content: center;
 }
 
-.justify-between {
-  justify-content: space-between;
-}
-
 .gap-2 {
   gap: 0.5rem;
 }
@@ -1257,14 +1245,6 @@ input[type="range"]::-ms-fill-lower {
 
 .whitespace-nowrap {
   white-space: nowrap;
-}
-
-.rounded {
-  border-radius: 0.25rem;
-}
-
-.rounded-full {
-  border-radius: 9999px;
 }
 
 .rounded-lg {
@@ -1329,11 +1309,6 @@ input[type="range"]::-ms-fill-lower {
   background-color: rgb(249 250 251 / var(--tw-bg-opacity));
 }
 
-.bg-gray-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(107 114 128 / var(--tw-bg-opacity));
-}
-
 .bg-gray-600 {
   --tw-bg-opacity: 1;
   background-color: rgb(75 85 99 / var(--tw-bg-opacity));
@@ -1386,16 +1361,8 @@ input[type="range"]::-ms-fill-lower {
   padding: 0.625rem;
 }
 
-.p-3 {
-  padding: 0.75rem;
-}
-
 .p-4 {
   padding: 1rem;
-}
-
-.p-10 {
-  padding: 2.5rem;
 }
 
 .px-0 {
@@ -1406,11 +1373,6 @@ input[type="range"]::-ms-fill-lower {
 .px-10 {
   padding-left: 2.5rem;
   padding-right: 2.5rem;
-}
-
-.px-2 {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
 }
 
 .px-3 {
@@ -1648,11 +1610,6 @@ input[type="range"]::-ms-fill-lower {
 .hover\:bg-gray-200:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(229 231 235 / var(--tw-bg-opacity));
-}
-
-.hover\:bg-gray-300:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(209 213 219 / var(--tw-bg-opacity));
 }
 
 .hover\:bg-gray-800:hover {
@@ -1928,6 +1885,10 @@ input[type="range"]::-ms-fill-lower {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
+  .sm\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .sm\:flex-row {
     flex-direction: row;
   }
@@ -2055,6 +2016,10 @@ input[type="range"]::-ms-fill-lower {
 
   .lg\:w-6\/12 {
     width: 50%;
+  }
+
+  .lg\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .lg\:px-48 {

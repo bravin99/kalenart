@@ -1,7 +1,5 @@
-{% load static %}
-
 {% for post in posts %}
-    <div>
-        <img class="h-[400px] max-w-full" src="{{ post.picture.url }}" alt="">
-    </div>
+    <a href="{{ post.picture.url }}" data-lightbox="my_feeds" data-title="{{ post.description }}">
+        <img class="gallery h-[400px] max-w-full" src="{{ post.picture.url }}" alt="">
+    </a>
 {% endfor %}

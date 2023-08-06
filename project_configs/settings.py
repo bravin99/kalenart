@@ -110,14 +110,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
-CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
-        'LOCATION': '1998kalen-art-cache',
-    }
-}
-
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
@@ -140,9 +132,15 @@ STATIC_ROOT = "staticfiles"
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder'
+    )
+
 STORAGES = {
     "staticfiles": {
-        "BACKEND": "django.contrib.staticfiles.storage.ManifestStaticFilesStorage",
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
     },
     "default": {
         "BACKEND": "django.core.files.storage.FileSystemStorage",
@@ -150,11 +148,12 @@ STORAGES = {
     },
 }
 
-STATICFILES_FINDERS = (
-    'django.contrib.staticfiles.finders.FileSystemFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    'compressor.finders.CompressorFinder'
-    )
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        'LOCATION': '1998kalen-art-cache',
+    }
+}
 
 # COMPRESS_ROOT = BASE_DIR / "static"
 COMPRESS_ENABLED = True
