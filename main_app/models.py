@@ -32,7 +32,7 @@ def feed_upload_path(instance, filename):
 
 
 class Feed(MainAppBaseModel):
-    image_slug = models.SlugField()
+    image_slug = models.SlugField(editable=False)
     picture = models.ImageField(upload_to=feed_upload_path)
     description = models.TextField()
     display = models.BooleanField(default=True)

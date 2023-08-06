@@ -1,13 +1,7 @@
 {% load static %}
+
+{% for post in posts %}
     <div>
-        <img class="h-[400px] max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg" alt="">
+        <img class="h-[400px] max-w-full" src="{{ post.picture.url }}" alt="">
     </div>
-    <div>
-        <img class="h-[400px] max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg" alt="">
-    </div>
-    <div>
-        <img class="h-[400px] max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg" alt="">
-    </div>
-    <div>
-        <img class="h-[400px] max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg" alt="">
-    </div>
+{% endfor %}

@@ -2,23 +2,12 @@
 {% load static %}
 
 {% block content %}
-<section>
-    <nav class="flex items-center justify-around flex-wrap bg-white p-6 shadow-md">
-        <div class="flex items-center flex-shrink-0 text-gray-800 mr-6 cursor-pointer">
-            <a href="{% url 'feed' %}">
-                <img src="{% static 'favicons/favicon-32x32.png' %}" alt="">
-            </a>
-        </div>
-        <div class="text-sm w-64 md:mr-32">
-            <label for="search_input" style="display: none;"></label>
-            <input id="search_input" class="bg-gray-100 focus:outline-none focus:shadow-outline border border-gray-400 rounded py-1 px-4 block w-full appearance-none leading-normal" type="text" placeholder="Search">
-        </div>
-    </nav>
+<section class="bg-white">
 
-    <div class="container mx-auto my-5 sm:px-10">
+    <div class="container mx-auto py-6 sm:px-10">
 
         <div class="flex justify-center">
-            <div class="mb-4 border-b border-gray-200 dark:border-gray-700">
+            <div class="pb-4 border-b border-gray-200 dark:border-gray-700">
                 <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="feedTabs" data-tabs-toggle="#feedTabsContent" role="tablist">
                     <li class="mr-2" role="presentation">
                         <button class="inline-block p-4 border-b-2 rounded-t-lg" id="list-tab-toggler" data-tabs-target="#listTab" type="button" role="tab" aria-controls="listTab" aria-selected="false">
@@ -38,17 +27,16 @@
             </div>
         </div>
         <div id="feedTabsContent">
-            <div class="hidden p-4 rounded-lg" id="listTab" role="tabpanel" aria-labelledby="listTab-content">
+            <div class="hidden rounded-lg" id="listTab" role="tabpanel" aria-labelledby="listTab-content">
+
                 <div class="grid grid-cols-1 place-items-center gap-2">
-                    {% include "main_app/feed_post_list.html" %}
-                    {% include "main_app/feed_post_list.html" %}
-                    {% include "main_app/feed_post_list.html" %}
-                    {% include "main_app/feed_post_list.html" %}
+                    {% include "main_app/feed_post_list.html" with posts=posts %}
                 </div>
+
             </div>
-            <div class="hidden p-4 rounded-lg" id="gridTab" role="tabpanel" aria-labelledby="gridTab-content">
-                <div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-2">
-                    {% include "main_app/feed_post_grid.html" %}
+            <div class="hidden" id="gridTab" role="tabpanel" aria-labelledby="gridTab-content">
+                <div class="grid grid-cols-2 md:grid-cols-3 sm:grid-cols-3 gap-2">
+                    {% include "main_app/feed_post_grid.html" with posts=posts %}
                 </div>
             </div>
         </div>

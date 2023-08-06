@@ -32,27 +32,27 @@
     {% compress css %}
         <link rel="stylesheet" href="{% static 'css/output.css' %}">
         <link rel="stylesheet" href="{% static 'toastr/toastr.min.css' %}">
-        {% if page_title == "landing" %}
+        <link rel="stylesheet" href="{% static 'featherlight/featherlight.min.css' %}">
         <style>
             .navclass {
                 transition-duration: 1s;
             }
+            .nav-underline-offset {
+                text-underline-offset: 14px;
+            }
         </style>
-        {% endif %}
         {% block extra_css %}{% endblock extra_css %}
     {% endcompress %}
 
 </head>  
 
-<body class="bg-green-50 dark:bg-gray-700">
+<body class="bg-white dark:bg-gray-700">
     <!-- Nav -->
-    <nav class="navclass border-gray-200 {% if page_title == "landing" %}sticky top-0{% endif %}">
+    <nav class="bg-white border-gray-200 {% if page_title == "landing" %}sticky top-0{% endif %}">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-center mx-auto p-2">
             <div class="flex items-center md:order-2">
-                {% comment %} theme toggler {% endcomment %}
-                <a href="{% url 'landing' %}" class="{% if page_title == "landing" %}underline font-bold{% endif %} border-r border-r-[#fb923c] block py-2 pl-3 pr-4 text-[#fb923c] hover:bg-gray-100 hover:bg-transparent hover:text-[#fef08a]">Home</a>
-                <a href="{% url 'feed' %}" class="{% if page_title == "feed" %}underline font-bold{% endif %} block py-2 pl-3 pr-4 text-[#fb923c] hover:bg-gray-100 hover:bg-transparent hover:text-[#fef08a] ">Feed</a>
-                <!-- Dropdown menu -->
+                <a href="{% url 'landing' %}" class="{% if page_title == "landing_page" %}underline nav-underline-offset font-bold{% endif %} border-r border-r-[#fb923c] block py-2 pl-3 pr-4 text-[#fb923c] hover:bg-gray-100 hover:bg-transparent hover:text-[#fef08a]">Home</a>
+                <a href="{% url 'feed' %}" class="{% if page_title == "feed_page" %}underline nav-underline-offset font-bold{% endif %} block py-2 pl-3 pr-4 text-[#fb923c] hover:bg-gray-100 hover:bg-transparent hover:text-[#fef08a]">Feed</a>
             </div>
         </div>
     </nav>
@@ -78,9 +78,11 @@
 
         <script src="{% static 'js/jquery-3.4.1.js' %}"></script>
         <script src="{% static 'toastr/toastr.min.js' %}"></script>
+        <script src="{% static 'featherlight/featherlight.min.js' %}"></script>
         {#    messages#}
         {% include 'messages.html' %}
         {#    end messages#}
+
 {#        {% if page_title == "landing" %}#}
 {#            <script type="text/javascript">#}
 {#            $(document).ready(function(){#}

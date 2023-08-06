@@ -140,21 +140,21 @@ STATIC_ROOT = "staticfiles"
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
-STATICFILES_FINDERS = (
-    'django.contrib.staticfiles.finders.FileSystemFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    'compressor.finders.CompressorFinder'
-    )
-
 STORAGES = {
     "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedStaticFilesStorage",
+        "BACKEND": "django.contrib.staticfiles.storage.ManifestStaticFilesStorage",
     },
     "default": {
         "BACKEND": "django.core.files.storage.FileSystemStorage",
         # "BACKEND": "storages.backends.ftp.FTPStorage",
     },
 }
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder'
+    )
 
 # COMPRESS_ROOT = BASE_DIR / "static"
 COMPRESS_ENABLED = True
