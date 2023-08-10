@@ -33,6 +33,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'django.contrib.sitemaps',
     'whitenoise',
     'compressor',
     'django_quill',
@@ -40,6 +42,8 @@ INSTALLED_APPS = [
     'accounts',
     'main_app',
 ]
+
+SITE_ID = 1
 
 AUTH_USER_MODEL = 'accounts.User'
 LOGIN_REDIRECT_URL = '/'

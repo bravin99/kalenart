@@ -1,3 +1,5 @@
+import uuid
+
 from django.db import models
 from django.shortcuts import reverse
 from main_app.image_compresor import compress_image
@@ -44,7 +46,12 @@ class Feed(MainAppBaseModel):
 
     def save(self, *args, **kwargs):
         self.picture = compress_image(self.picture, 60)
+        if not self.image_slug:
+            self.image_slug = uuid.uuid4()
         return super(Feed, self).save()
+
+    def get_absolute_url(self):
+        return reverse("feed_detail", kwargs={"slug": self.image_slug})
 
     class Meta:
         verbose_name = "Feeds"
