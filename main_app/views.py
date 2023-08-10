@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from main_app.models import Feed
 from django.contrib import messages
 
@@ -17,3 +17,8 @@ def feed(request):
         "posts": posts
     }
     return render(request, "main_app/feed.html", context)
+
+
+def feed_detail(request, slug):
+    post = Feed.objects.get(image_slug=slug)
+    return redirect("feed")

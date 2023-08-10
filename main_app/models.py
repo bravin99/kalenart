@@ -1,4 +1,5 @@
 from django.db import models
+from django.shortcuts import reverse
 from main_app.image_compresor import compress_image
 
 
@@ -14,6 +15,7 @@ class SiteData(MainAppBaseModel):
     instagram_link = models.URLField()
     facebook_link = models.URLField(default="https://facebook.com/the.kalen")
     email = models.EmailField()
+    terms_and_conditions = models.TextField()
 
     class Meta:
         verbose_name = "Site Data"
@@ -43,6 +45,9 @@ class Feed(MainAppBaseModel):
     def save(self, *args, **kwargs):
         self.picture = compress_image(self.picture, 60)
         return super(Feed, self).save()
+
+    def get_absolute_url(self):
+        return reverse("feed_detail", args={self.image_slug})
 
     class Meta:
         verbose_name = "Feeds"
