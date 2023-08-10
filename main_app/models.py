@@ -11,6 +11,9 @@ class MainAppBaseModel(models.Model):
 
 
 class SiteData(MainAppBaseModel):
+    site_name = models.CharField(max_length=155, default="Kalen Art")
+    site_domain = models.URLField(default="https://kalen.art")
+    site_keywords = models.TextField(help_text="comma separated keywords")
     header_title = models.CharField(max_length=100, default="Header title here", verbose_name="Headline")
     header_message = models.TextField(default="put intro here", verbose_name="Introduction")
     header_image = models.ImageField(upload_to="here_images/", null=True)
