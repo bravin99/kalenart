@@ -46,9 +46,6 @@ class Feed(MainAppBaseModel):
         self.picture = compress_image(self.picture, 60)
         return super(Feed, self).save()
 
-    def get_absolute_url(self):
-        return reverse("feed_detail", args={self.image_slug})
-
     class Meta:
         verbose_name = "Feeds"
         verbose_name_plural = verbose_name
