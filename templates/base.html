@@ -8,23 +8,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Bravin Shumwe">
-    <meta name="description" content="">
-    <meta name="keywords" content="">
-    <title>KALEN ART</title>
+    <meta name="author" content="Bravin Shumwe - Developer">
+    <meta name="description" content="{{ my_site_data.header_message|truncatewords:20 }}">
+    <meta name="keywords" content="{{ my_site_data.site_keywords }}">
+    <title>{{ my_site_data.site_name }}</title>
 
     <!-- seo -->
     <!-- open graph -->
-    <meta property="og:url" content="" />
-    <meta property="og:title" content="" />
-    <meta property="og:image" content="" />
-    <meta property="og:image:alt" content="kalen art logo" />
+    <meta property="og:url" content="{{ my_site_data.site_domain }}" />
+    <meta property="og:title" content="{{ my_site_data.site_name }}" />
+    <meta property="og:image" content="{% static 'favicons/favicon-32x32.png' %}" />
+    <meta property="og:image:alt" content="{{ my_site_data.site_name }}-logo" />
 
     <!-- twitter tags -->
-    <meta name="twitter:image" content="" />
-    <meta property="twitter:image:alt" content="kalen art logo" />
+    <meta name="twitter:image" content="{% static 'favicons/favicon-32x32.png' %}" />
+    <meta property="twitter:image:alt" content="{{ my_site_data.site_name }}-logo" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="" />
+    <meta name="twitter:site" content="{{ my_site_data.site_domain }}" />
 
     <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicons/apple-touch-icon.png' %}">
     <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicons/favicon-32x32.png' %}">

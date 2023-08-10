@@ -49,7 +49,7 @@ class Feed(MainAppBaseModel):
 
     def save(self, *args, **kwargs):
         self.picture = compress_image(self.picture, 60)
-        if not self.image_slug:
+        if self.image_slug is None:
             self.image_slug = uuid.uuid4()
         return super(Feed, self).save()
 

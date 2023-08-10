@@ -4,7 +4,11 @@
 {% block extra_css %}
     <style>
     .header-background {
-        background-image: url("https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg");
+        background-image: {% if my_site_data.header_image is not None %}
+            url("{{ my_site_data.header_image.url }}")
+            {% else %}
+            url("https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg")
+        {% endif %};
     }
     </style>
 {% endblock extra_css %}
