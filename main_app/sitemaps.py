@@ -26,3 +26,5 @@ class FeedSiteMap(Sitemap):
     def lastmod(obj):
         return obj.updated
 
+    def location(self, item):
+        return reverse("feed")

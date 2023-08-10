@@ -53,9 +53,6 @@ class Feed(MainAppBaseModel):
             self.image_slug = uuid.uuid4()
         return super(Feed, self).save()
 
-    def get_absolute_url(self):
-        return reverse("feed_detail", kwargs={"slug": self.image_slug})
-
     class Meta:
         verbose_name = "Feeds"
         verbose_name_plural = verbose_name

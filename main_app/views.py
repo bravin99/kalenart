@@ -18,7 +18,3 @@ def feed(request):
     }
     return render(request, "main_app/feed.html", context)
 
-
-def feed_detail(request, slug):
-    post = Feed.objects.get(image_slug=slug)
-    return redirect("feed")
