@@ -27,3 +27,8 @@ if settings.DEBUG:
 handler400 = views.error_400
 handler404 = views.error_404
 handler500 = views.error_500
+
+
+admin.site.site_title = "Kalen Art Admin"
+admin.site.site_header = "Kalen Art"
+admin.site.index_title = "Welcome to Kalen Art"
