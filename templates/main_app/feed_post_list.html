@@ -2,7 +2,7 @@
 {% for post in posts %}
 <!--  Post  -->
 <div class="overflow-hidden w-full lg:w-6/12 md:w-6/12 bg-white mx-0 md:mx-0 lg:mx-0">
-    <img class="w-full bg-cover" src="{{ post.picture.url }}" alt="feed image">
+    <img loading="lazy" class="w-full bg-cover" src="{{ post.picture.url }}" alt="feed image">
     <div class="px-3 pb-2">
         <div class="pt-2">
             <i class="far fa-heart cursor-pointer"></i>

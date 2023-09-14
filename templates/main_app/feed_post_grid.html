@@ -1,5 +1,5 @@
 {% for post in posts %}
     <a href="{{ post.picture.url }}" data-lightbox="my_feeds" data-title="{{ post.description }}">
-        <img class="gallery h-[400px] max-w-full" src="{{ post.picture.url }}" alt="">
+        <img loading="lazy" class="gallery h-[400px] max-w-full" src="{{ post.picture.url }}" alt="">
     </a>
 {% endfor %}
